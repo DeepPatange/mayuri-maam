@@ -5,3 +5,8 @@ dist
 .env.*.local
 *.log
 .DS_Store
+*.zip
+drawings/
+__pycache__/
+*.h5
+*.keras

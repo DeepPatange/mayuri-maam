@@ -1,0 +1,161 @@
+==============================================================
+       SIMPLE PROJECT GUIDE FOR MAYURI
+       Parkinson's Disease Prediction Using CNN
+==============================================================
+
+Hi Mayuri! This guide will help you understand your project
+in a simple way. Don't worry, it's easy!
+
+
+--------------------------------------------------------------
+WHAT IS THIS PROJECT ABOUT?
+--------------------------------------------------------------
+- This project detects if a person has Parkinson's disease
+- How? By looking at their hand drawings (spirals and waves)
+- People with Parkinson's have shaky hands, so their drawings
+  look different from healthy people
+- We use a CNN (a type of AI) to learn this difference
+
+
+--------------------------------------------------------------
+WHAT FILES ARE IN THIS PROJECT?
+--------------------------------------------------------------
+
+1. parkinson-prediction-using-simple-cnn.ipynb
+   ------------------------------------------
+   THIS IS YOUR MAIN FILE! (Jupyter Notebook)
+
+   What happens inside (step by step):
+
+   Step 1: Load and show images
+           - Shows spiral drawings from healthy people
+           - Shows spiral drawings from Parkinson's patients
+           - Shows wave drawings from healthy people
+           - Shows wave drawings from Parkinson's patients
+
+   Step 2: Build the CNN Model
+           - Creates a neural network with layers:
+             > Conv2D (finds patterns in images)
+             > MaxPooling2D (reduces image size)
+             > Flatten (converts to 1D)
+             > Dense (makes final decision)
+
+   Step 3: Prepare the Images
+           - Resizes all images to 128x128 pixels
+           - Applies data augmentation (zoom, flip, shear)
+           - Splits into training and testing sets
+
+   Step 4: Train the Model
+           - Model learns from 72 training images
+           - Tests on 30 testing images
+           - Runs for up to 48 epochs (rounds of learning)
+
+   Step 5: Show Results
+           - Displays accuracy and loss graphs
+
+
+2. drawings.zip / spiral.zip / wave.zip
+   ------------------------------------
+   These contain the DATASET (images):
+   - Spiral drawings by healthy people
+   - Spiral drawings by Parkinson's patients
+   - Wave drawings by healthy people
+   - Wave drawings by Parkinson's patients
+
+   You need to EXTRACT these before running the notebook!
+
+
+3. output/ folder
+   ---------------
+   Contains screenshots/images used for documentation:
+   - accuracy.PNG      -> Shows model accuracy graph
+   - dataset.PNG       -> Shows dataset structure
+   - healthy.PNG       -> Sample healthy spiral drawings
+   - parkinson.PNG     -> Sample Parkinson's spiral drawings
+   - wave-healthy.PNG  -> Sample healthy wave drawings
+   - wave-parkinson.PNG-> Sample Parkinson's wave drawings
+   - overview.PNG      -> Project overview image
+
+
+4. README.md
+   ---------
+   Project description file (what you show to others)
+
+
+--------------------------------------------------------------
+HOW TO RUN THE PROJECT?
+--------------------------------------------------------------
+
+Step 1: Extract the zip files
+         - Extract "drawings.zip" in the same folder
+         - This will create a "drawings" folder
+
+Step 2: Open Jupyter Notebook
+         - Open terminal/command prompt
+         - Type: jupyter notebook
+         - Click on "parkinson-prediction-using-simple-cnn.ipynb"
+
+Step 3: Run each cell
+         - Press Shift + Enter to run each cell one by one
+         - OR click "Run All" from the menu
+
+
+--------------------------------------------------------------
+WHAT LIBRARIES ARE USED?
+--------------------------------------------------------------
+
+1. keras / tensorflow - For building the CNN model
+2. matplotlib        - For showing graphs and images
+3. os                - For reading files from folders
+
+Install them using:
+   pip install tensorflow matplotlib
+
+
+--------------------------------------------------------------
+SIMPLE EXPLANATION OF CNN (for viva)
+--------------------------------------------------------------
+
+CNN = Convolutional Neural Network
+
+Think of it like this:
+- You show the computer many pictures
+- Computer learns what healthy drawings look like
+- Computer learns what Parkinson's drawings look like
+- When you show a new drawing, it tells you which type it is!
+
+Layers in simple words:
+- Conv2D     = Finds edges, shapes, patterns in image
+- MaxPooling = Makes image smaller (keeps important parts)
+- Flatten    = Converts 2D image to 1D list
+- Dense      = Makes the final Yes/No decision
+
+
+--------------------------------------------------------------
+KEY TERMS TO REMEMBER (for viva)
+--------------------------------------------------------------
+
+- Parkinson's Disease: Brain disorder causing shaky hands
+- CNN: AI that can understand images
+- Training Data: Images used to teach the model
+- Testing Data: Images used to check if model learned well
+- Epoch: One complete round of training
+- Accuracy: How many correct predictions (higher = better)
+- Binary Classification: Choosing between 2 options
+                         (Healthy or Parkinson's)
+
+
+--------------------------------------------------------------
+DATASET DETAILS
+--------------------------------------------------------------
+
+Training Images: 72 (36 healthy + 36 parkinson)
+Testing Images:  30 (15 healthy + 15 parkinson)
+
+Image Size: 128 x 128 pixels
+Image Type: RGB (colored)
+
+
+==============================================================
+                    GOOD LUCK MAYURI!
+==============================================================
