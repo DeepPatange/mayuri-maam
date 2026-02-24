@@ -30,13 +30,17 @@ export default function AnimatedCounter({ target, suffix = '', duration = 2, lab
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="glass-card rounded-2xl p-6 text-center hover:border-primary/30 transition-all duration-300"
+      className="neon-card p-8 text-center group"
     >
-      <div className="text-3xl mb-3 text-primary">{icon}</div>
-      <div className="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-        {count}{suffix}
+      <div className="relative z-10">
+        <div className="text-3xl mb-3 text-primary group-hover:text-secondary transition-colors duration-300">
+          {icon}
+        </div>
+        <div className="text-5xl font-heading font-black gradient-text mb-1">
+          {count}{suffix}
+        </div>
+        <div className="text-text-secondary text-sm mt-2 font-medium tracking-wide uppercase">{label}</div>
       </div>
-      <div className="text-text-secondary text-sm mt-2">{label}</div>
     </motion.div>
   );
 }

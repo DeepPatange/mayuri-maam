@@ -35,26 +35,50 @@ const sections = [
   },
 ];
 
+const techStack = [
+  { name: 'Python', category: 'backend' },
+  { name: 'TensorFlow', category: 'ml' },
+  { name: 'Keras', category: 'ml' },
+  { name: 'EfficientNet', category: 'ml' },
+  { name: 'Flask', category: 'backend' },
+  { name: 'React', category: 'frontend' },
+  { name: 'Tailwind CSS', category: 'frontend' },
+  { name: 'Framer Motion', category: 'frontend' },
+  { name: 'Vite', category: 'frontend' },
+  { name: 'NumPy', category: 'ml' },
+  { name: 'Scikit-learn', category: 'ml' },
+  { name: 'OpenCV', category: 'ml' },
+  { name: 'Grad-CAM', category: 'ml' },
+];
+
+const categoryColors = {
+  ml: { bg: 'rgba(124,58,237,0.1)', border: 'rgba(124,58,237,0.25)', text: '#a78bfa' },
+  frontend: { bg: 'rgba(6,182,212,0.1)', border: 'rgba(6,182,212,0.25)', text: '#22d3ee' },
+  backend: { bg: 'rgba(244,114,182,0.1)', border: 'rgba(244,114,182,0.25)', text: '#f472b6' },
+};
+
 export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-24 pb-12">
-      <div className="max-w-5xl mx-auto px-4">
+    <div className="min-h-screen pt-28 pb-12 relative mesh-bg">
+      <div className="max-w-5xl mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-14"
         >
-          <h1 className="text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              About the Project
-            </span>
+          <span className="inline-block px-4 py-1 rounded-full text-xs font-medium tracking-widest uppercase mb-4"
+            style={{ background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.2)', color: '#06b6d4' }}>
+            Project
+          </span>
+          <h1 className="text-4xl md:text-5xl font-heading font-bold gradient-text-warm mb-4">
+            About the Project
           </h1>
-          <p className="text-text-secondary max-w-xl mx-auto">
+          <p className="text-text-secondary max-w-xl mx-auto text-lg">
             Understanding Parkinson's disease detection through AI-powered analysis of hand drawings.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {sections.map((item, i) => (
             <InfoCard key={i} {...item} delay={i * 0.1} />
           ))}
@@ -65,24 +89,39 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12 glass-card rounded-2xl p-8"
+          className="mt-16 neon-card p-10"
         >
-          <h2 className="text-2xl font-semibold text-text-primary mb-6 text-center">
-            Technologies Used
-          </h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {[
-              'Python', 'TensorFlow', 'Keras', 'EfficientNet', 'Flask',
-              'React', 'Tailwind CSS', 'Framer Motion', 'Vite',
-              'NumPy', 'Scikit-learn', 'OpenCV', 'Grad-CAM',
-            ].map((tech) => (
-              <span
-                key={tech}
-                className="px-4 py-2 rounded-full bg-surface-light text-text-secondary text-sm border border-primary/10 hover:border-primary/30 hover:text-primary-light transition-colors"
-              >
-                {tech}
-              </span>
-            ))}
+          <div className="relative z-10">
+            <h2 className="text-2xl font-heading font-semibold text-center mb-8 gradient-text tracking-wider">
+              Technologies Used
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              {techStack.map((tech) => {
+                const colors = categoryColors[tech.category];
+                return (
+                  <motion.span
+                    key={tech.name}
+                    whileHover={{ scale: 1.08, y: -2 }}
+                    className="px-5 py-2.5 rounded-full text-sm font-medium cursor-default transition-all duration-300"
+                    style={{
+                      background: colors.bg,
+                      border: `1px solid ${colors.border}`,
+                      color: colors.text,
+                    }}
+                  >
+                    {tech.name}
+                  </motion.span>
+                );
+              })}
+            </div>
+            <div className="flex justify-center gap-6 mt-6">
+              {Object.entries({ ml: 'ML/AI', frontend: 'Frontend', backend: 'Backend' }).map(([key, label]) => (
+                <div key={key} className="flex items-center gap-2 text-xs text-text-secondary">
+                  <div className="w-2 h-2 rounded-full" style={{ background: categoryColors[key].text }} />
+                  {label}
+                </div>
+              ))}
+            </div>
           </div>
         </motion.section>
       </div>

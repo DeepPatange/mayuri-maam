@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import UploadPage from './pages/UploadPage';
+import ModelInfoPage from './pages/ModelInfoPage';
 import AboutPage from './pages/AboutPage';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/upload" element={<UploadPage />} />
+              <Route path="/model" element={<ModelInfoPage />} />
               <Route path="/about" element={<AboutPage />} />
             </Routes>
           </AnimatePresence>
